@@ -38,6 +38,7 @@
                                 </a>
                             </li>
                         </ul>
+
                         <ul class="nav">
                             <li class="nav-item{{ $activePage == 'produtos-management' ? ' active' : '' }}">
                                 <a class="nav-link" href="{{ route('produto.index') }}">

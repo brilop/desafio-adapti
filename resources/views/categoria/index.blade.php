@@ -33,7 +33,7 @@
                                         @foreach ($categorias as $categoria)
                                             <tr>
                                                 <td>{{ $categoria->id }}</td>
-                                                <td>{{ $categoria->categoria }}</td>
+                                                <td>{{ $categoria->name }}</td>
                                                 <td>
                                                     <!-- botao editar -->
                                                     <a href="{{ route('categoria.edit', $categoria->id) }}">
@@ -74,7 +74,6 @@
                             color: red;
                             font-weight: bold;
                         }
-
                     </style>
                     <div class="modal-footer">
                         <form id="form-excluir" method="POST" enctype="multipart/form-data">
