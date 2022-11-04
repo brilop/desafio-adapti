@@ -8,6 +8,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LocaleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\SiteController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +22,9 @@ use App\Http\Controllers\ProdutoController;
 |
 */
 
+//Rotas para front-end
+Route::get('home', [SiteController::class, 'index'])->name('home');
+
 Route::middleware('locale')->group(function () {
 
     Route::put('/locale', [LocaleController::class, 'setLocale'])->name('locale');
@@ -27,6 +32,7 @@ Route::middleware('locale')->group(function () {
     Route::get('/', function () {
         return redirect()->route('dashboard');
     });
+
 
     Auth::routes();
 
@@ -42,7 +48,6 @@ Route::middleware('locale')->group(function () {
         Route::resource('user', UserController::class, ['except' => ['show']]);
         Route::resource('categoria', CategoriaController::class, ['except' => ['show']]);
         Route::resource('produto', ProdutoController::class);
-
 
         //Rotas para perfil do usuário
         Route::controller(ProfileController::class)->name('profile.')->group(function () {
